@@ -34,24 +34,40 @@ Partial Class admin_login
     End Sub
 
     Protected Sub validAdmin()
-        uacname = Request.QueryString("uacname")
-        cmd = New SqlCommand("select uacname,email,password from admin where uacname=@username and password=@password ", con)
-        cmd.Parameters.AddWithValue("@username", username.Text.Trim)
-        cmd.Parameters.AddWithValue("@password", password.Text.Trim)
-        ad = New SqlDataAdapter(cmd)
-        ds = New DataSet
-        ad.Fill(ds)
-        Dim adminUsername As String = ds.Tables(0).Rows(0).Item(0).ToString
-        Dim adminPassword As String = ds.Tables(0).Rows(0).Item(2).ToString
-        If adminUsername.Trim = username.Text.Trim And adminPassword = password.Text.Trim Then
-            MsgBox()
-        End If
+        checkData()
+        Try
+            uacname = Request.QueryString("uacname")
+            cmd = New SqlCommand("select uacname,email,password from admin where uacname=@username ", con)
+            cmd.Parameters.AddWithValue("@username", username.Text.Trim)
+            cmd.Parameters.AddWithValue("@password", password.Text.Trim)
+            ad = New SqlDataAdapter(cmd)
+            ds = New DataSet
+            Try
+                ad.Fill(ds)
+                Dim adminUsername As String = ds.Tables(0).Rows(0).Item(0).ToString
+                Dim adminPassword As String = ds.Tables(0).Rows(0).Item(2).ToString
+                If adminUsername.Trim = username.Text.Trim And adminPassword.Trim = password.Text.Trim Then
+                    MsgBox("Successfully Login")
+                    Return
+                    Response.Redirect("~/admin/home.aspx")
+                ElseIf adminUsername.Trim = username.Text.Trim Or adminPassword.Trim <> password.Text.Trim Then
+                    MsgBox("Password Wrong")
+                    Return
+                Else
+                    MsgBox("UserNot Exists")
+                    Return
+                End If
+            Catch
+                MsgBox("Record not found")
+                Return
+            End Try
+        Catch
+        End Try
     End Sub
 
     Protected Sub btnLogin_Click(sender As Object, e As System.EventArgs) Handles btnLogin.Click
-        checkData()
-
-        Response.Redirect("~/admin/home.aspx")
+        connection()
+        validAdmin()
     End Sub
 
     Protected Sub btnCreateNewAccount_Click(sender As Object, e As System.EventArgs) Handles btnCreateNewAccount.Click
