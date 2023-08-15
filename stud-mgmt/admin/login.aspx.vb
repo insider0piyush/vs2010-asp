@@ -47,19 +47,24 @@ Partial Class admin_login
                 Dim adminUsername As String = ds.Tables(0).Rows(0).Item(0).ToString
                 Dim adminPassword As String = ds.Tables(0).Rows(0).Item(2).ToString
                 If adminUsername.Trim = username.Text.Trim And adminPassword.Trim = password.Text.Trim Then
-                    MsgBox("Successfully Login")
+                    If MsgBox("Successfully Login !", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Information") = MsgBoxResult.Ok Then
+                        Session("username") = username.Text.Trim
+                        Session("adminLogin") = True
+                        Response.Redirect("~/admin/home.aspx")
+                        username.Text = ""
+                        password.Text = ""
+                    End If
                     Return
-                    Response.Redirect("~/admin/home.aspx")
                 ElseIf adminUsername.Trim = username.Text.Trim Or adminPassword.Trim <> password.Text.Trim Then
-                    MsgBox("Password Wrong")
+                    If MsgBox("Wrong Password", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Error") = MsgBoxResult.Ok Then
+                        password.Text = ""
+                    End If
                     Return
                 Else
                     MsgBox("UserNot Exists")
                     Return
                 End If
             Catch
-                MsgBox("Record not found")
-                Return
             End Try
         Catch
         End Try

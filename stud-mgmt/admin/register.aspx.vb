@@ -30,7 +30,7 @@ Partial Class admin_register
     Protected Sub register()
         cmd = New SqlCommand("insert into admin values(@username,@fname,@lname,@email,@mno,@password)", con)
         Try
-            cmd.Parameters.AddWithValue("@username", fname.Text.Trim & Convert.ToInt64(mno.Text.Trim.Substring(4, 4)))
+            cmd.Parameters.AddWithValue("@username", LCase(fname.Text.Trim & Convert.ToInt64(mno.Text.Trim.Substring(4, 4))))
             cmd.Parameters.AddWithValue("@fname", fname.Text.Trim)
             cmd.Parameters.AddWithValue("@lname", lname.Text.Trim)
             cmd.Parameters.AddWithValue("@email", email.Text.Trim)
