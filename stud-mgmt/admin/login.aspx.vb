@@ -21,14 +21,14 @@ Partial Class admin_login
     End Sub
 
     Protected Sub checkData()
-        If username.Text = "" Or password.Text = "" Then
-            MsgBox("All fields empty")
+        If username.Text = "" And password.Text = "" Then
+            Page.Controls.Add(New LiteralControl("<script type=text/javascript>alert('All fields are empty !')</script>"))
             Return
         ElseIf username.Text = "" Then
-            MsgBox("Username cannot empty")
+            Page.Controls.Add(New LiteralControl("<script type=text/javascript>alert('Username cannot empty !')</script>"))
             Return
         ElseIf password.Text = "" Then
-            MsgBox("Password cannot empty")
+            Page.Controls.Add(New LiteralControl("<script type=text/javascript>alert('Password cannot empty !')</script>"))
             Return
         End If
     End Sub
@@ -48,24 +48,22 @@ Partial Class admin_login
                 Dim adminPassword As String = ds.Tables(0).Rows(0).Item(2).ToString
                 If adminUsername.Trim = username.Text.Trim And adminPassword.Trim = password.Text.Trim Then
 
-                    If MsgBox("Successfully Login !", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Information") = MsgBoxResult.Ok Then
-                        Session("username") = username.Text.Trim
-                        Session("adminLogin") = True
-                        Response.Redirect("~/admin/home.aspx")
-                        username.Text = ""
-                        password.Text = ""
-                    End If
+                    'If MsgBox("Successfully Login !", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Information") = MsgBoxResult.Ok Then
+                    Session("username") = username.Text.Trim
+                    Session("adminLogin") = True
+                    Response.Redirect("~/admin/home.aspx")
+                    'End If
                     Return
                 ElseIf adminUsername.Trim = username.Text.Trim Or adminPassword.Trim <> password.Text.Trim Then
-                    If MsgBox("Wrong Password", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Error") = MsgBoxResult.Ok Then
-                        password.Text = ""
-                    End If
-                    Return
-                Else
-                    MsgBox("UserNot Exists")
+                    'If MsgBox("Wrong Password", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Error") = MsgBoxResult.Ok Then
+                    Page.Controls.Add(New LiteralControl("<script type=text/javascript>alert('Wrong Password')</script>"))
+                    password.Text = ""
+                    'End If
                     Return
                 End If
             Catch
+                username.Text = ""
+                password.Text = ""
             End Try
         Catch
         End Try

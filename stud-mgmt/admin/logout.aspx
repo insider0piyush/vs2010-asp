@@ -1466,17 +1466,8 @@
 
         <div class="footer container-lg p-responsive py-6 mt-6 f6" role="contentinfo">
             <ul class="list-style-none d-flex flex-justify-center">
-                <li class="mr-3"><a href="/site/terms"
-                        data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to terms&quot;,&quot;label&quot;:&quot;text:terms&quot;}">Terms</a>
-                </li>
-                <li class="mr-3"><a href="/site/privacy"
-                        data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to privacy&quot;,&quot;label&quot;:&quot;text:privacy&quot;}">Privacy</a>
-                </li>
-                <li class="mr-3"><a href="https://docs.github.com/"
-                        data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to docs&quot;,&quot;label&quot;:&quot;text:docs&quot;}">Docs</a>
-                </li>
                 <li><a class="Link--secondary" data-ga-click="Footer, go to contact, text:contact"
-                        href="https://github.com/contact">Contact GitHub Support</a></li>
+                        href="insider0piyush-support.carrd.co">Contact Insider0piyush Support</a></li>
             </ul>
         </div>
 

@@ -474,7 +474,7 @@
                                     data-signin-label="Sign in" data-sso-label="Sign in with your identity provider"
                                     development="false" Text="Sign In" />
 
-                                <a id="btnCreateNewAccount" class="label-link position-absolute top-0 right-0" tabindex="0" href="#">Forgot
+                                <a id="btnCreateNewAccount" class="label-link position-absolute top-0 right-0" tabindex="0" href="password_reset.aspx">Forgot
                                     password?</a>
                             </div>
                         </form>
