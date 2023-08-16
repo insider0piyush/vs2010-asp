@@ -42,7 +42,7 @@ Partial Class admin_register
                     MsgBox("password cannot empty")
                 Else
                     cmd.ExecuteNonQuery()
-                    MsgBox("Hello" & " " & fname.Text.Trim & Convert.ToInt64(mno.Text.Trim.Substring(4, 4)) & " , " & " You are successfully registered to our portal !", MsgBoxStyle.Information, "Information")
+                    MsgBox("Hello" & " " & LCase(fname.Text.Trim & Convert.ToInt64(mno.Text.Trim.Substring(4, 4))) & " , " & " You are successfully registered to our portal !", MsgBoxStyle.Information, "Information")
                     clearData()
                 End If
             Else

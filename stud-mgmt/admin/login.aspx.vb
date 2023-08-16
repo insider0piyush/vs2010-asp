@@ -47,6 +47,7 @@ Partial Class admin_login
                 Dim adminUsername As String = ds.Tables(0).Rows(0).Item(0).ToString
                 Dim adminPassword As String = ds.Tables(0).Rows(0).Item(2).ToString
                 If adminUsername.Trim = username.Text.Trim And adminPassword.Trim = password.Text.Trim Then
+
                     If MsgBox("Successfully Login !", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Information") = MsgBoxResult.Ok Then
                         Session("username") = username.Text.Trim
                         Session("adminLogin") = True
@@ -73,9 +74,5 @@ Partial Class admin_login
     Protected Sub btnLogin_Click(sender As Object, e As System.EventArgs) Handles btnLogin.Click
         connection()
         validAdmin()
-    End Sub
-
-    Protected Sub btnCreateNewAccount_Click(sender As Object, e As System.EventArgs) Handles btnCreateNewAccount.Click
-        Response.Redirect("~/admin/register.aspx")
     End Sub
 End Class
