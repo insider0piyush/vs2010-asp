@@ -49,7 +49,7 @@ Partial Class admin_password_reset
                 If adminUsername.Trim = username.Text.Trim And adminEmail.Trim = email_field.Text.Trim Then
 
                     'If MsgBox("Successfully Login !", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Information") = MsgBoxResult.Ok Then
-                    Response.Redirect("~/admin/con_pass_reset.aspx")
+                    Response.Redirect("~/admin/con_pass_reset.aspx?uacname=" & adminUsername)
                     'End If
                     Return
                 ElseIf adminUsername.Trim = username.Text.Trim Or adminEmail.Trim <> email_field.Text.Trim Then

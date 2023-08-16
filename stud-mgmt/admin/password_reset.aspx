@@ -367,7 +367,7 @@
                                 our captcha. Please enable JavaScript during password reset.</p>
                         </noscript>
                         <div class="auth-form-header p-0">
-                            <h1>Reset your password</h1>
+                            <h1>User Verification</h1>
                         </div>
                         <div id="js-flash-container" data-turbo-replace="">
 
