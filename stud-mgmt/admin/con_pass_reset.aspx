@@ -465,7 +465,7 @@
                                 </div>
                             </div>
 
-                            <asp:TextBox type="text" name="email" runat="server" id="email" class="form-control input-block"
+                            <asp:TextBox type="email" name="email" runat="server" id="email" class="form-control input-block"
                                 autofocus="autofocus" disabled = disable ></asp:TextBox>
 
                             <div class="my-3">
@@ -486,7 +486,7 @@
                                 </div>
                             </div>
 
-                            <asp:TextBox type="text" id="password" runat="server" class="form-control input-block" placeholder="Enter your password" autofocus="autofocus"></asp:TextBox>
+                            <asp:TextBox type="password" id="password" runat="server" class="form-control input-block" placeholder="Enter your password" autofocus="autofocus"></asp:TextBox>
 
                             <div class="my-3">
                                 <div
@@ -506,7 +506,7 @@
                                 </div>
                             </div>
 
-                            <asp:TextBox type="text" name="cpassword" runat="server" placeholder="Enter your confirm password" id="cpassowrd" class="form-control input-block"
+                            <asp:TextBox type="password" name="cpassword" runat="server" placeholder="Enter your confirm password" id="cpassowrd" class="form-control input-block"
                                 autofocus="autofocus"></asp:TextBox>
 
                             <div class="my-3">
@@ -527,7 +527,8 @@
                                 </div>
                             </div>
 
-                            <asp:Button runat="server" ID="verifyUser" type="submit" Text="Verify user" class="btn btn-primary btn-block " />
+                            <asp:Button runat="server" ID="updatePassword" type="submit" 
+                                Text="Update Password" class="btn btn-primary btn-block " />
                         </div>
                         <input class="form-control" type="text" name="required_field_c782" hidden="hidden">
                         <input class="form-control" type="hidden" name="timestamp" value="1692199847114">
